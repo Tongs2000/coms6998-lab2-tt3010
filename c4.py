@@ -284,11 +284,6 @@ def run_c4_experiment(args):
     print(f"1 worker      => Data Load: {load_time_1:.4f}s, Compute: {compute_time_1:.4f}s, Total: {total_1:.4f}s")
     print(f"{best_workers} workers => Data Load: {load_time_best:.4f}s, Compute: {compute_time_best:.4f}s, Total: {total_best:.4f}s")
 
-    # Brief explanation of any differences
-    print("\nExplanation: With more workers, data loading can be parallelized, often reducing I/O time.")
-    print("Compute time may remain similar if the same model and batch size are used, since computation depends on the device.")
-    print("If overhead of creating/managing workers is not too high, using more workers typically results in faster overall runtime.")
-
 # Argument parser
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Train ResNet-18 on CIFAR-10 with C3 and C4 experiments")
