@@ -242,7 +242,10 @@ def measure_loading_and_computation(args, workers):
 
     # Measure computation time for one epoch
     train_start = time.perf_counter()
-    for inputs, targets in data:
+    for i, (inputs, targets) in enumerate(data):
+        # Print progress
+        if (i + 1) % 10 == 0:
+            print(f"Processed batch {i+1}/{len(data)}...")
         inputs, targets = inputs.to(device), targets.to(device)
         outputs = model(inputs)
         loss = criterion(outputs, targets)
